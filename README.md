@@ -87,11 +87,11 @@ The following chart compares the performance results
 ## Takeaways
 
 - **Precision - Low Credit Risk**: All models demonstrated high precision when it came to predicting low credit risk applications
-- **Precisio - High Credit Risk**: All performed poorly when it came to precision for predicting high credit risk scores
+- **Precision - High Credit Risk**: All performed poorly when it came to precision for predicting high credit risk scores
 - **F1 - High Credit Risk**: Again, another poor performance across the board. 
 
 ### Top Performer
-The Easy Ensemble AdaBoost Classifier was the top performer out of all algorithms, showing incredibly high precision and recall when predicting low credit scores.
+The **Easy Ensemble AdaBoost Classifier** was the top performer out of all algorithms, showing incredibly high precision and recall when predicting low credit scores.
 - 100% Precision
 - 95% Recall
 - 98% F1
