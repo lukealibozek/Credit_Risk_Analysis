@@ -18,86 +18,76 @@ The following algorithms were used:
 
 ## Naive Random Oversampling
 
-![](resources/naive_BAS.png)
-![](resources/naive_CM.png)
-![](resources/naive_ICM.png)
+![](resources/random_oversampling.png)
 
-- **Balanced Accuracy Score**: 61%
+- **Balanced Accuracy Score**: 63%
 - **Precision**: 1% (High) 100% (Low)
-- **Sensitivity**: 56% (High) 66% (Low)
-- **F1**: 2% (High) 80% (Low)
+- **Sensitivity**: 55% (High) 71% (Low)
+- **F1**: 2% (High) 83% (Low)
 
 ## SMOTE
 
-![](resources/smote_BAS.png)
-![](resources/smote_CM.png)
-![](resources/smote_ICM.png)
+![](resources/smote.png)
 
-- **Balanced Accuracy Score**: 64%
+- **Balanced Accuracy Score**: 63.4%
 - **Precision**: 1% (High) 100% (Low)
-- **Sensitivity**: 59% (High) 70% (Low)
-- **F1**: 2% (High) 82% (Low)
+- **Sensitivity**: 56% (High) 71% (Low)
+- **F1**: 2% (High) 83% (Low)
 
 ## Cluster Centroids
 
-![](resources/under_BAS.png)
-![](resources/under_CM.png)
-![](resources/under_ICM.png)
+![](resources/cluster.png)
 
 - **Balanced Accuracy Score**: 50%
 - **Precision**: 1% (High) 99% (Low)
-- **Sensitivity**: 52% (High) 49% (Low)
-- **F1**: 1% (High) 65% (Low)
+- **Sensitivity**: 49% (High) 50% (Low)
+- **F1**: 1% (High) 67% (Low)
 
 ## SMOTEENN
-![](resources/comb_BAS.png)
-![](resources/comb_CM.png)
-![](resources/comb_ICM.png)
+![](resources/smoteenn.png)
 
-- **Balanced Accuracy Score**: 64%
+- **Balanced Accuracy Score**: 62.6%
 - **Precision**: 1% (High) 100% (Low)
-- **Sensitivity**: 66% (High) 62% (Low)
-- **F1**: 2% (High) 76% (Low)
+- **Sensitivity**: 62% (High) 63% (Low)
+- **F1**: 2% (High) 77% (Low)
 
 ## Balanced Random Forest Classifier
 
-![](resources/RFC_BAS.png)
-![](resources/RFC_CM.png)
-![](resources/RFC_ICM.png)
+![](resources/rndForest.png)
+### Feature Importance, Ranked
+![](resources/feature_importance.png)
 
-- **Balanced Accuracy Score**: 99.9%
-- **Precision**: 82% (High) 100% (Low)
-- **Sensitivity**: 100% (High) 100% (Low)
-- **F1**: 90% (High) 100% (Low)
+- **Balanced Accuracy Score**: 74%
+- **Precision**: 3% (High) 100% (Low)
+- **Sensitivity**: 59% (High) 89% (Low)
+- **F1**: 5% (High) 94% (Low)
 
 ## Easy Ensemble AdaBoost Classifier
 
-![](resources/ada_BAS.png)
-![](resources/ada_CM.png)
-![](resources/ada_ICM.png)
+![](resources/eEnsemble.png)
 
-- **Balanced Accuracy Score**: 100%
-- **Precision**: 100% (High) 100% (Low)
-- **Sensitivity**: 100% (High) 100% (Low)
-- **F1**: 100% (High) 100% (Low)
+- **Balanced Accuracy Score**: 89%
+- **Precision**: 8% (High) 100% (Low)
+- **Sensitivity**: 83% (High) 95% (Low)
+- **F1**: 15% (High) 98% (Low)
   
 # Summary
 The following chart compares the performance results
 
 |           |Naive ROS|SMOTE|Cluster|SMOTEENN|RndForest |EasyEns  |
 |-----------|---------|-----|-------|--------|----------|---------|
-|BAS        |61%      |64%  |50%    |64%     |99.9%     |100%     |
-|Pre (High) |1%       |1%   |1%     |1%      |82%       |100%     |
+|BAS        |63%      |63.4%|50%    |62.6%   |74%       |89%      |
+|Pre (High) |1%       |1%   |1%     |1%      |3%        |8%       |
 |Pre (Low)  |100%     |100% |99%    |100%    |100%      |100%     |
-|Rec (High) |56%      |59%  |52%    |66%     |100%      |100%     |
-|Rec (Low)  |66%      |70%  |49%    |62%     |100%      |100%     |
-|F1 (High)  |2%       |2%   |1%     |2%      |90%       |100%     |
-|F1 (Low)   |80%      |82%  |65%    |76%     |100%      |100%     |
+|Rec (High) |55%      |56%  |49%    |62%     |59%       |83%      |
+|Rec (Low)  |71%      |71%  |50%    |63%     |89%       |95%      |
+|F1 (High)  |2%       |2%   |1%     |2%      |5%        |15%      |
+|F1 (Low)   |83%      |83%  |67%    |77%     |94%       |98%      |
 
 ## Takeaways
 
-- All models demonstrated high prevision when it came to predicting low credit risk applications
-- The resampling algorithms performed poorly when it came to precision for predicting high credit risk scores, all averaging 1%
+- All models demonstrated high precision when it came to predicting low credit risk applications
+- All performed poorly when it came to precision for predicting high credit risk scores - though the Ensemble Learners performed *slightly* better
 - Ensemble learners out performed all, with high scores across the board.
 - **Winner**: Based on the results above, the ***Easy Ensemble AdaBoost Classifier*** is the clear choice, with 100% across the board.
   - **Note**: This perfect score brings up concerns of overfitting, as such a perfect score is unrealistic in a real world setting
